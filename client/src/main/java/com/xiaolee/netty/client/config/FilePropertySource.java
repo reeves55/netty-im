@@ -5,7 +5,29 @@ package com.xiaolee.netty.client.config;
  */
 public class FilePropertySource implements PropertySource{
 
+    /**
+     * 服务器连接地址列表
+     * @return
+     */
     public String[] serverUrls() {
         return new String[0];
+    }
+
+    /**
+     * 连接超时时间(ms)
+     *
+     * @return
+     */
+    public long connectTimeout() {
+        return 0;
+    }
+
+    /**
+     * 心跳间隙时间(ms)
+     *
+     * @return
+     */
+    public long heartbeatInterval() {
+        return 0;
     }
 }

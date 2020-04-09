@@ -23,14 +23,14 @@ public class NettyIMClient implements IMClient{
     /**
      * 连接到IM服务器
      */
-    public Promise connect() throws ConnectException {
+    public Promise connect() {
         if (connectStatus > DISCONNECTED) {
-            throw new ConnectException("client is connecting or has already connected to server");
+            // throw new ConnectException("client is connecting or has already connected to server");
         }
 
         String[] servers = propertySource.serverUrls();
-        if (servers.length == 0) {
-            throw new ConnectException("server urls is empty, please config one available server url at least");
+        if (servers == null || servers.length == 0) {
+            // throw new ConnectException("server urls are empty, please specify one available server url at least");
         }
 
         for (String url : servers) {
