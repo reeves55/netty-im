@@ -18,6 +18,18 @@ public class StaticPropertySource implements PropertySource {
         heartbeatInterval = 5 * 1000;
     }
 
+    public void addServer(String serverUrl) {
+
+    }
+
+    public void setConnectionTimeout(long connectionTimeout) {
+        this.connectionTimeout = connectionTimeout;
+    }
+
+    public void setHeartbeatInterval(long heartbeatInterval) {
+        this.heartbeatInterval = heartbeatInterval;
+    }
+
     /**
      * 服务器连接地址列表
      * @return
