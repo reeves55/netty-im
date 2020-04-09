@@ -1,7 +1,6 @@
 package com.xiaolee.netty.client;
 
 import com.xiaolee.netty.client.config.PropertySource;
-import com.xiaolee.netty.client.exception.ConnectException;
 import com.xiaolee.netty.client.promise.Promise;
 
 public class NettyIMClient implements IMClient{
@@ -24,6 +23,7 @@ public class NettyIMClient implements IMClient{
      * 连接到IM服务器
      */
     public Promise connect() {
+
         if (connectStatus > DISCONNECTED) {
             // throw new ConnectException("client is connecting or has already connected to server");
         }
