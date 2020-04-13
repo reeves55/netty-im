@@ -62,8 +62,8 @@ public class NettyIMClient implements IMClient{
      */
     @Override
     public Promise<?> sendTo(String receiver, OutMessage message) {
-        byte[] msgBytes = message.getContent();
         Message msg = new Message();
+        msg.setBody(message.getContent());
 
         return null;
     }
