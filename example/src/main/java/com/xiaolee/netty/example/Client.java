@@ -1,4 +1,4 @@
-package com.xiaolee.netty.client.example;
+package com.xiaolee.netty.example;
 
 import com.xiaolee.netty.client.IMClient;
 import com.xiaolee.netty.client.NettyIMClient;
@@ -7,7 +7,7 @@ import com.xiaolee.netty.client.promise.CompleteListener;
 import com.xiaolee.netty.client.promise.Promise;
 import com.xiaolee.netty.common.message.PlainTextOutMessage;
 
-public class ClientDemo {
+public class Client {
     public static void main(String[] args) {
         StaticPropertySource ps = new StaticPropertySource();
         ps.addServer("http://localhost:8777");
