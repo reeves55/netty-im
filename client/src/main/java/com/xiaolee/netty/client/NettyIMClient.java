@@ -1,6 +1,8 @@
 package com.xiaolee.netty.client;
 
 import com.xiaolee.netty.client.core.config.ClientPropertySource;
+import com.xiaolee.netty.common.message.OutMessage;
+import com.xiaolee.netty.common.protocol.Message;
 import io.netty.util.concurrent.Promise;
 
 public class NettyIMClient implements IMClient{
@@ -40,11 +42,29 @@ public class NettyIMClient implements IMClient{
         return null;
     }
 
+    /**
+     * 登陆（用户名密码认证）
+     * @return
+     */
     public Promise<?> login(String username, String password) {
         return null;
     }
 
+    /**
+     * 登陆（token认证）
+     */
     public Promise<?> login(String token) {
+        return null;
+    }
+
+    /**
+     * 发送消息
+     */
+    @Override
+    public Promise<?> sendTo(String receiver, OutMessage message) {
+        byte[] msgBytes = message.getContent();
+        Message msg = new Message();
+
         return null;
     }
 }

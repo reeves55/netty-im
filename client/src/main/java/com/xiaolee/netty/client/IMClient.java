@@ -1,5 +1,6 @@
 package com.xiaolee.netty.client;
 
+import com.xiaolee.netty.common.message.OutMessage;
 import io.netty.util.concurrent.Promise;
 
 public interface IMClient {
@@ -26,4 +27,9 @@ public interface IMClient {
      * @return
      */
     Promise<?> login(String token);
+
+    /**
+     * 发送消息
+     */
+    Promise<?> sendTo(String receiver, OutMessage message);
 }
