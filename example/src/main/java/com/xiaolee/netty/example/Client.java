@@ -42,6 +42,7 @@ public class Client {
                             System.out.println(promise.cause().getMessage());
                         }
                     });
+            client.sendTo("receiver", new PlainTextAppMsg("byebye"));
 
         } catch (InterruptedException e) {
             e.printStackTrace();
