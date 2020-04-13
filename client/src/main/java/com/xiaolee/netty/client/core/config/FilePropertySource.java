@@ -1,9 +1,9 @@
-package com.xiaolee.netty.client.config;
+package com.xiaolee.netty.client.core.config;
 
 /**
  * 从文件中解析配置属性
  */
-public class FilePropertySource implements PropertySource{
+public class FilePropertySource implements ClientPropertySource {
 
     /**
      * 服务器连接地址列表

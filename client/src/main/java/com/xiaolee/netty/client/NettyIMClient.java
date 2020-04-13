@@ -1,7 +1,7 @@
 package com.xiaolee.netty.client;
 
-import com.xiaolee.netty.client.config.PropertySource;
-import com.xiaolee.netty.client.promise.Promise;
+import com.xiaolee.netty.client.core.config.ClientPropertySource;
+import io.netty.util.concurrent.Promise;
 
 public class NettyIMClient implements IMClient{
     private static final int DISCONNECTED = 0;
@@ -10,12 +10,12 @@ public class NettyIMClient implements IMClient{
     // 客户端连接状态
     private volatile int connectStatus = DISCONNECTED;
     // 属性配置源，用于获取配置属性值
-    private PropertySource propertySource;
+    private ClientPropertySource propertySource;
 
     /**
      * 构造方法
      */
-    public NettyIMClient(PropertySource propertySource) {
+    public NettyIMClient(ClientPropertySource propertySource) {
         this.propertySource = propertySource;
     }
 

@@ -1,6 +1,6 @@
 package com.xiaolee.netty.client;
 
-import com.xiaolee.netty.client.promise.Promise;
+import io.netty.util.concurrent.Promise;
 
 public interface IMClient {
     /**
@@ -8,4 +8,6 @@ public interface IMClient {
      * @return
      */
     Promise connect();
+
+
 }

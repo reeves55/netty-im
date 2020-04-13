@@ -2,10 +2,10 @@ package com.xiaolee.netty.client.example;
 
 import com.xiaolee.netty.client.IMClient;
 import com.xiaolee.netty.client.NettyIMClient;
-import com.xiaolee.netty.client.config.StaticPropertySource;
-import com.xiaolee.netty.client.promise.Promise;
+import com.xiaolee.netty.client.core.config.StaticPropertySource;
+import com.xiaolee.netty.client.core.promise.Promise;
 
-public class Example {
+public class ClientDemo {
     public static void main(String[] args) {
         StaticPropertySource ps = new StaticPropertySource();
         ps.addServer("http://localhost:8777");

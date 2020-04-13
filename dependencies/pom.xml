@@ -9,14 +9,51 @@
 
     <properties>
         <netty-version>4.1.42.Final</netty-version>
+        <protostuff-version>1.6.2</protostuff-version>
+        <lombok-version>1.18.12</lombok-version>
+        <netty-common-version>1.0.0.SNAPSHOT</netty-common-version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <!-- netty all -->
             <dependency>
                 <groupId>io.netty</groupId>
                 <artifactId>netty-all</artifactId>
                 <version>${netty-version}</version>
+            </dependency>
+
+            <!-- proto stuff -->
+            <dependency>
+                <groupId>io.protostuff</groupId>
+                <artifactId>protostuff-core</artifactId>
+                <version>${protostuff-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.protostuff</groupId>
+                <artifactId>protostuff-runtime</artifactId>
+                <version>${protostuff-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.protostuff</groupId>
+                <artifactId>protostuff-api</artifactId>
+                <version>${protostuff-version}</version>
+            </dependency>
+
+            <!-- lombok -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok-version}</version>
+            </dependency>
+
+            <!-- common dependency -->
+            <dependency>
+                <groupId>com.xiaolee</groupId>
+                <artifactId>netty-common</artifactId>
+                <version>${netty-common-version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

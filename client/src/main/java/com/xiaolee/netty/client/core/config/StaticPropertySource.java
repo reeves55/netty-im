@@ -1,12 +1,9 @@
-package com.xiaolee.netty.client.config;
-
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+package com.xiaolee.netty.client.core.config;
 
 /**
  * 从对象中读取配置属性
  */
-public class StaticPropertySource implements PropertySource {
+public class StaticPropertySource implements ClientPropertySource {
     private String[] serverUrls;
     private long connectionTimeout;
     private long heartbeatInterval;

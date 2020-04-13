@@ -1,6 +1,6 @@
-package com.xiaolee.netty.client.config;
+package com.xiaolee.netty.client.core.config;
 
-public interface PropertySource {
+public interface ClientPropertySource {
     /**
      * 服务器连接地址列表
      * @return
