@@ -39,4 +39,12 @@ public class NettyIMClient implements IMClient{
 
         return null;
     }
+
+    public Promise<?> login(String username, String password) {
+        return null;
+    }
+
+    public Promise<?> login(String token) {
+        return null;
+    }
 }

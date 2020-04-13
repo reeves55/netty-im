@@ -11,7 +11,6 @@
         <netty-version>4.1.42.Final</netty-version>
         <protostuff-version>1.6.2</protostuff-version>
         <lombok-version>1.18.12</lombok-version>
-        <netty-common-version>1.0.0.SNAPSHOT</netty-common-version>
     </properties>
 
     <dependencyManagement>
@@ -47,13 +46,6 @@
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok-version}</version>
-            </dependency>
-
-            <!-- common dependency -->
-            <dependency>
-                <groupId>com.xiaolee</groupId>
-                <artifactId>netty-common</artifactId>
-                <version>${netty-common-version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
