@@ -1,5 +1,7 @@
 package com.xiaolee.netty.client;
 
+import com.xiaolee.netty.client.core.Dispatcher;
+import com.xiaolee.netty.client.core.OnEventListener;
 import com.xiaolee.netty.common.message.OutMessage;
 import com.xiaolee.netty.client.core.promise.Promise;
 
@@ -9,9 +11,7 @@ public interface IMClient {
      *
      * @return
      */
-    Promise<?> connect();
-
-
+    Promise connect();
 
     /**
      * 登陆（用户名密码认证）
@@ -20,7 +20,7 @@ public interface IMClient {
      * @param password
      * @return
      */
-    Promise<?> login(String username, String password);
+    Promise login(String username, String password);
 
     /**
      * 登陆（token认证）
@@ -28,10 +28,17 @@ public interface IMClient {
      * @param token
      * @return
      */
-    Promise<?> login(String token);
+    Promise login(String token);
 
     /**
      * 发送消息
      */
-    Promise<?> sendTo(String receiver, OutMessage message);
+    Promise sendTo(String receiver, OutMessage message);
+
+    /**
+     * 添加事件监听器
+     *
+     * @param listener
+     */
+    void addOnEventListener(OnEventListener listener);
 }

@@ -18,13 +18,15 @@ public class ClientDemo {
             Promise connPromise = client.connect().sync();
             if (connPromise.isFailed()) {
                 // handle connection failed
+                System.out.println("连接出错: " + connPromise.cause().getMessage());
+                return;
             }
 
             client.sendTo("receiver", new PlainTextOutMessage("hello"))
-                    .addListener(new CompleteListener<String>() {
+                    .addListener(new CompleteListener() {
                         @Override
-                        public void onComplete(Promise<String> promise) {
-                            System.out.println("消息发送完毕");
+                        public void onError(Promise promise) {
+                            System.out.println(promise.cause().getMessage());
                         }
                     });
 

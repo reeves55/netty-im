@@ -1,5 +1,7 @@
 package com.xiaolee.netty.client;
 
+import com.xiaolee.netty.client.core.Dispatcher;
+import com.xiaolee.netty.client.core.OnEventListener;
 import com.xiaolee.netty.client.core.config.ClientPropertySource;
 import com.xiaolee.netty.client.core.promise.Promise;
 import com.xiaolee.netty.common.message.OutMessage;
@@ -13,6 +15,8 @@ public class NettyIMClient implements IMClient{
     private volatile int connectStatus = DISCONNECTED;
     // 属性配置源，用于获取配置属性值
     private ClientPropertySource propertySource;
+    // 消息分发器
+    Dispatcher dispatcher;
 
     /**
      * 构造方法
@@ -24,8 +28,7 @@ public class NettyIMClient implements IMClient{
     /**
      * 连接到IM服务器
      */
-    public Promise<?> connect() {
-
+    public Promise connect() {
         if (connectStatus > DISCONNECTED) {
             // throw new ConnectException("client is connecting or has already connected to server");
         }
@@ -46,14 +49,14 @@ public class NettyIMClient implements IMClient{
      * 登陆（用户名密码认证）
      * @return
      */
-    public Promise<?> login(String username, String password) {
+    public Promise login(String username, String password) {
         return null;
     }
 
     /**
      * 登陆（token认证）
      */
-    public Promise<?> login(String token) {
+    public Promise login(String token) {
         return null;
     }
 
@@ -61,10 +64,23 @@ public class NettyIMClient implements IMClient{
      * 发送消息
      */
     @Override
-    public Promise<?> sendTo(String receiver, OutMessage message) {
+    public Promise sendTo(String receiver, OutMessage message) {
         Message msg = new Message();
         msg.setBody(message.getContent());
 
+        Message.Head head = new Message.Head();
+        head.setTo(receiver);
+
         return null;
     }
+
+    /**
+     * 添加事件监听器
+     */
+    @Override
+    public void addOnEventListener(OnEventListener listener) {
+
+    }
+
+
 }

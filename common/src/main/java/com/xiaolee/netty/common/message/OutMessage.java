@@ -10,4 +10,11 @@ public interface OutMessage {
      * @return
      */
     byte[] getContent();
+
+    /**
+     * 消息内容类型
+     *
+     * @return
+     */
+    MessageTypeEnum type();
 }

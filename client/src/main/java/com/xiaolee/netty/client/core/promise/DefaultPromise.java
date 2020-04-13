@@ -1,8 +1,9 @@
 package com.xiaolee.netty.client.core.promise;
 
-public class DefaultPromise<T> implements Promise<T>{
+public class DefaultPromise implements Promise{
+    private Exception cause;
 
-    public Promise<T> sync() throws InterruptedException {
+    public Promise sync() throws InterruptedException {
         return null;
     }
 
@@ -11,7 +12,15 @@ public class DefaultPromise<T> implements Promise<T>{
     }
 
     @Override
-    public Promise<T> addListener(CompleteListener listener) {
+    public Promise addListener(CompleteListener listener) {
         return null;
+    }
+
+    /**
+     * 获取执行异常信息
+     */
+    @Override
+    public Exception cause() {
+        return cause;
     }
 }

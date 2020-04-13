@@ -1,5 +1,17 @@
 package com.xiaolee.netty.client.core.promise;
 
-public interface CompleteListener<T> {
-    public void onComplete(Promise<T> promise);
+public interface CompleteListener {
+    /**
+     * complete success
+     *
+     * @param promise
+     */
+    default void onSuccess(Promise promise) {}
+
+    /**
+     * error occurred
+     *
+     * @param promise
+     */
+    default void onError(Promise promise) {}
 }

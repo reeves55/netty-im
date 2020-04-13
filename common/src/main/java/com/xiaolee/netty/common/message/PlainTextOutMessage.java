@@ -23,4 +23,12 @@ public class PlainTextOutMessage implements OutMessage{
 
         return content.getBytes(StandardCharsets.UTF_8);
     }
+
+    /**
+     * 消息内容类型
+     */
+    @Override
+    public MessageTypeEnum type() {
+        return MessageTypeEnum.PLAIN_TEXT;
+    }
 }

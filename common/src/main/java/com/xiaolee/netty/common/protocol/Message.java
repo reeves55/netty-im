@@ -27,7 +27,7 @@ public class Message {
         this.body = body;
     }
 
-    static class Head {
+    public static class Head {
         @Tag(1)
         private String id;
 
