@@ -1,2 +1,2 @@
-# NettyClientServerDemo
-IM client and server demo base on Netty
+# netty-im
+IM client and server base on Netty
