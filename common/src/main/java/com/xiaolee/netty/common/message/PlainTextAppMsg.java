@@ -5,18 +5,23 @@ import java.nio.charset.StandardCharsets;
 /**
  * 简单文本消息
  */
-public class PlainTextOutMessage implements OutMessage{
+public class PlainTextAppMsg implements AppMsg {
     private static final byte[] EMPTY_BYTE_ARRAY = new byte[0];
     private String content;
 
-    public PlainTextOutMessage(String content) {
+    public PlainTextAppMsg(String content) {
         this.content = content;
+    }
+
+    public PlainTextAppMsg(byte[] bytes) {
+        this.content = new String(bytes, StandardCharsets.UTF_8);
     }
 
     /**
      * 获取消息内容字节数组
      */
-    public byte[] getContent() {
+    @Override
+    public byte[] getBytes() {
         if (content == null) {
             return EMPTY_BYTE_ARRAY;
         }
@@ -28,7 +33,15 @@ public class PlainTextOutMessage implements OutMessage{
      * 消息内容类型
      */
     @Override
-    public MessageTypeEnum type() {
-        return MessageTypeEnum.PLAIN_TEXT;
+    public String contentType() {
+        return MsgTypeConstant.PLAIN_TEXT;
+    }
+
+    /**
+     * 获取实际的消息内容对象
+     */
+    @Override
+    public Object getObject() {
+        return content;
     }
 }

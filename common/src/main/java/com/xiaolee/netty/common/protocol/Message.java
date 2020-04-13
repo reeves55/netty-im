@@ -35,7 +35,7 @@ public class Message {
         private int category;
 
         @Tag(3)
-        private int type;
+        private String contentType;
 
         @Tag(4)
         private String from;
@@ -69,12 +69,12 @@ public class Message {
             this.category = category;
         }
 
-        public int getType() {
-            return type;
+        public String getContentType() {
+            return contentType;
         }
 
-        public void setType(int type) {
-            this.type = type;
+        public void setContentType(String contentType) {
+            this.contentType = contentType;
         }
 
         public String getFrom() {

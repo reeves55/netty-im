@@ -1,6 +1,6 @@
 package com.xiaolee.netty.client;
 
-import com.xiaolee.netty.common.message.OutMessage;
+import com.xiaolee.netty.common.message.AppMsg;
 import com.xiaolee.netty.client.promise.Promise;
 
 public interface IMClient {
@@ -31,7 +31,7 @@ public interface IMClient {
     /**
      * 发送消息
      */
-    Promise sendTo(String receiver, OutMessage message);
+    Promise sendTo(String receiver, AppMsg message);
 
     /**
      * 添加事件监听器

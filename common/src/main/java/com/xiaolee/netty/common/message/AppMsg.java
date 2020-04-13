@@ -3,18 +3,25 @@ package com.xiaolee.netty.common.message;
 /**
  *
  */
-public interface OutMessage {
+public interface AppMsg {
     /**
      * 获取消息内容字节数组
      *
      * @return
      */
-    byte[] getContent();
+    byte[] getBytes();
 
     /**
      * 消息内容类型
      *
      * @return
      */
-    MessageTypeEnum type();
+    String contentType();
+
+    /**
+     * 获取实际的消息内容对象
+     *
+     * @return
+     */
+    Object getObject();
 }

@@ -1,4 +1,4 @@
-package com.xiaolee.netty.common.handler;
+package com.xiaolee.netty.common.protocol;
 
 import io.netty.channel.ChannelOutboundHandlerAdapter;
 

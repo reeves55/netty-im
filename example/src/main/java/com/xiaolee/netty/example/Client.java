@@ -2,10 +2,13 @@ package com.xiaolee.netty.example;
 
 import com.xiaolee.netty.client.IMClient;
 import com.xiaolee.netty.client.NettyIMClient;
+import com.xiaolee.netty.client.OnEventListener;
 import com.xiaolee.netty.client.config.StaticPropertySource;
 import com.xiaolee.netty.client.promise.CompleteListener;
 import com.xiaolee.netty.client.promise.Promise;
-import com.xiaolee.netty.common.message.PlainTextOutMessage;
+import com.xiaolee.netty.common.message.AppMsgUtil;
+import com.xiaolee.netty.common.message.PlainTextAppMsg;
+import com.xiaolee.netty.common.protocol.Message;
 
 public class Client {
     public static void main(String[] args) {
@@ -22,7 +25,16 @@ public class Client {
                 return;
             }
 
-            client.sendTo("receiver", new PlainTextOutMessage("hello"))
+            client.addOnEventListener(new OnEventListener() {
+                @Override
+                public void msgReceived(Message message) {
+                    if (AppMsgUtil.isPlainTextMsg(message)) {
+                        System.out.println("收到消息: " + AppMsgUtil.wrapperPlainTextMsg(message).getObject());
+                    }
+                }
+            });
+
+            client.sendTo("receiver", new PlainTextAppMsg("hello"))
                     .addListener(new CompleteListener() {
                         @Override
                         public void onError(Promise promise) {

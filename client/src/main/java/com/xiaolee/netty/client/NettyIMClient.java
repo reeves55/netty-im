@@ -2,7 +2,7 @@ package com.xiaolee.netty.client;
 
 import com.xiaolee.netty.client.config.ClientPropertySource;
 import com.xiaolee.netty.client.promise.Promise;
-import com.xiaolee.netty.common.message.OutMessage;
+import com.xiaolee.netty.common.message.AppMsg;
 import com.xiaolee.netty.common.protocol.Message;
 
 public class NettyIMClient implements IMClient{
@@ -62,9 +62,9 @@ public class NettyIMClient implements IMClient{
      * 发送消息
      */
     @Override
-    public Promise sendTo(String receiver, OutMessage message) {
+    public Promise sendTo(String receiver, AppMsg message) {
         Message msg = new Message();
-        msg.setBody(message.getContent());
+        msg.setBody(message.getBytes());
 
         Message.Head head = new Message.Head();
         head.setTo(receiver);
