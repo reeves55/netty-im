@@ -1,4 +1,4 @@
-package com.xiaolee.netty.client.core.config;
+package com.xiaolee.netty.client.config;
 
 public interface ClientPropertySource {
     /**

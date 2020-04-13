@@ -1,9 +1,7 @@
 package com.xiaolee.netty.client;
 
-import com.xiaolee.netty.client.core.Dispatcher;
-import com.xiaolee.netty.client.core.OnEventListener;
 import com.xiaolee.netty.common.message.OutMessage;
-import com.xiaolee.netty.client.core.promise.Promise;
+import com.xiaolee.netty.client.promise.Promise;
 
 public interface IMClient {
     /**

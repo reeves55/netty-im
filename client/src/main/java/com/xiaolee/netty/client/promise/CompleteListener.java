@@ -1,4 +1,4 @@
-package com.xiaolee.netty.client.core.promise;
+package com.xiaolee.netty.client.promise;
 
 public interface CompleteListener {
     /**

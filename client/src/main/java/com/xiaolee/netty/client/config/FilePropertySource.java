@@ -1,4 +1,4 @@
-package com.xiaolee.netty.client.core.config;
+package com.xiaolee.netty.client.config;
 
 /**
  * 从文件中解析配置属性

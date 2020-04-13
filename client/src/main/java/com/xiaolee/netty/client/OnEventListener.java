@@ -1,4 +1,4 @@
-package com.xiaolee.netty.client.core;
+package com.xiaolee.netty.client;
 
 public interface OnEventListener {
     void msgReceived();
