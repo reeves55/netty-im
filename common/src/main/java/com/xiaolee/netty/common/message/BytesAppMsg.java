@@ -1,15 +1,10 @@
 package com.xiaolee.netty.common.message;
 
-import java.io.File;
-
-/**
- * 文件消息
- */
-public class FileAppMsg extends AbstractAppMsg {
-    private File file;
-
+public class BytesAppMsg extends AbstractAppMsg{
     /**
-     * 获取消息内容字节数组
+     * subclass to implement
+     *
+     * @return
      */
     @Override
     public byte[] getBytes() {
@@ -17,20 +12,22 @@ public class FileAppMsg extends AbstractAppMsg {
     }
 
     /**
-     * 消息内容类型
+     * subclass to implement
      *
      * @return
      */
     @Override
     public String contentType() {
-        return MsgTypeConstant.FILE;
+        return null;
     }
 
     /**
-     * 获取实际的消息内容对象
+     * subclass to implement
+     *
+     * @return
      */
     @Override
     public Object getObject() {
-        return file;
+        return null;
     }
 }

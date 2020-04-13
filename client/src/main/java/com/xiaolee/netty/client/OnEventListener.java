@@ -1,6 +1,6 @@
 package com.xiaolee.netty.client;
 
-import com.xiaolee.netty.common.protocol.Message;
+import com.xiaolee.netty.common.message.AppMsg;
 
 public interface OnEventListener {
     /**
@@ -8,5 +8,5 @@ public interface OnEventListener {
      *
      * @param message
      */
-    default void msgReceived(Message message){}
+    default void msgReceived(AppMsg message){}
 }

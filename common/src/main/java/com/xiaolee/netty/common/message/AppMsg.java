@@ -1,5 +1,7 @@
 package com.xiaolee.netty.common.message;
 
+import java.util.Map;
+
 /**
  *
  */
@@ -24,4 +26,25 @@ public interface AppMsg {
      * @return
      */
     Object getObject();
+
+    /**
+     * 消息发送者
+     *
+     * @return
+     */
+    String msgFrom();
+
+    /**
+     * 消息接受者
+     *
+     * @return
+     */
+    String msgTo();
+
+    /**
+     * 自定义拓展消息字段
+     *
+     * @return
+     */
+    Map<String, Object> extendMap();
 }

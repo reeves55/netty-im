@@ -5,7 +5,7 @@ import java.nio.charset.StandardCharsets;
 /**
  * 简单文本消息
  */
-public class PlainTextAppMsg implements AppMsg {
+public class PlainTextAppMsg extends AbstractAppMsg {
     private static final byte[] EMPTY_BYTE_ARRAY = new byte[0];
     private String content;
 
