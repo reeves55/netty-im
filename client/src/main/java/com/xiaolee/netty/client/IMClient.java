@@ -1,7 +1,7 @@
 package com.xiaolee.netty.client;
 
 import com.xiaolee.netty.common.message.OutMessage;
-import io.netty.util.concurrent.Promise;
+import com.xiaolee.netty.client.core.promise.Promise;
 
 public interface IMClient {
     /**
@@ -10,6 +10,8 @@ public interface IMClient {
      * @return
      */
     Promise<?> connect();
+
+
 
     /**
      * 登陆（用户名密码认证）

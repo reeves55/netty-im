@@ -1,9 +1,9 @@
 package com.xiaolee.netty.client;
 
 import com.xiaolee.netty.client.core.config.ClientPropertySource;
+import com.xiaolee.netty.client.core.promise.Promise;
 import com.xiaolee.netty.common.message.OutMessage;
 import com.xiaolee.netty.common.protocol.Message;
-import io.netty.util.concurrent.Promise;
 
 public class NettyIMClient implements IMClient{
     private static final int DISCONNECTED = 0;
@@ -24,7 +24,7 @@ public class NettyIMClient implements IMClient{
     /**
      * 连接到IM服务器
      */
-    public Promise connect() {
+    public Promise<?> connect() {
 
         if (connectStatus > DISCONNECTED) {
             // throw new ConnectException("client is connecting or has already connected to server");
