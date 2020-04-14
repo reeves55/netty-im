@@ -39,4 +39,9 @@ public interface IMClient {
      * @param listener
      */
     void addOnEventListener(OnEventListener listener);
+
+    /**
+     * 关闭客户端，清理所有资源
+     */
+    void close();
 }

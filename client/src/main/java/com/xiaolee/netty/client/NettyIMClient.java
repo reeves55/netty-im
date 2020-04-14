@@ -1,9 +1,11 @@
 package com.xiaolee.netty.client;
 
 import com.xiaolee.netty.client.config.ClientPropertySource;
+import com.xiaolee.netty.client.promise.ChannelFutureAdapter;
 import com.xiaolee.netty.client.promise.Promise;
 import com.xiaolee.netty.common.message.AppMsg;
 import com.xiaolee.netty.common.protocol.Message;
+import io.netty.channel.Channel;
 
 public class NettyIMClient implements IMClient{
     private static final int DISCONNECTED = 0;
@@ -15,6 +17,8 @@ public class NettyIMClient implements IMClient{
     private ClientPropertySource propertySource;
     // 消息分发器
     Dispatcher dispatcher;
+    // netty 网络连接
+    Channel connection;
 
     /**
      * 构造方法
@@ -69,7 +73,7 @@ public class NettyIMClient implements IMClient{
         Message.Head head = new Message.Head();
         head.setTo(receiver);
 
-        return null;
+        return new ChannelFutureAdapter(connection.writeAndFlush(msg));
     }
 
     /**
@@ -77,6 +81,14 @@ public class NettyIMClient implements IMClient{
      */
     @Override
     public void addOnEventListener(OnEventListener listener) {
+
+    }
+
+    /**
+     * 关闭客户端，清理所有资源
+     */
+    @Override
+    public void close() {
 
     }
 

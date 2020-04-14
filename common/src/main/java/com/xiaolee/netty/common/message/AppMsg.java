@@ -3,7 +3,7 @@ package com.xiaolee.netty.common.message;
 import java.util.Map;
 
 /**
- *
+ * 应用层消息接口
  */
 public interface AppMsg {
     /**
