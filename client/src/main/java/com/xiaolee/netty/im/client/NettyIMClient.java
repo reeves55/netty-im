@@ -22,7 +22,6 @@ public class NettyIMClient implements IMClient{
     // netty 网络连接
     private Channel connection;
     private Bootstrap bootstrap;
-    private EventLoopGroup eventLoopGroup;
 
 
     public NettyIMClient(ClientPropertySource propertySource) {

@@ -3,7 +3,7 @@ package com.xiaolee.netty.im.example;
 import com.xiaolee.netty.im.client.IMClient;
 import com.xiaolee.netty.im.client.NettyIMClient;
 import com.xiaolee.netty.im.client.OnEventListener;
-import com.xiaolee.netty.im.client.config.StaticPropertySource;
+import com.xiaolee.netty.im.client.config.DefaultPropertySource;
 import com.xiaolee.netty.im.client.promise.CompleteListener;
 import com.xiaolee.netty.im.client.promise.Promise;
 import com.xiaolee.netty.im.common.message.AppMsg;
@@ -11,7 +11,7 @@ import com.xiaolee.netty.im.common.message.PlainTextAppMsg;
 
 public class Client {
     public static void main(String[] args) {
-        StaticPropertySource ps = new StaticPropertySource();
+        DefaultPropertySource ps = new DefaultPropertySource();
         ps.addServer("http://localhost:8777");
         ps.setConnectionTimeout(10 * 1000);
 
