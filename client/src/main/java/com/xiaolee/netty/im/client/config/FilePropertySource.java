@@ -3,7 +3,7 @@ package com.xiaolee.netty.im.client.config;
 /**
  * 从文件中解析配置属性
  */
-public class FilePropertySource implements ClientPropertySource {
+public class FilePropertySource {
 
     /**
      * 服务器连接地址列表

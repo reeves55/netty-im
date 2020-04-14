@@ -18,4 +18,10 @@ public interface ClientPropertySource {
      * @return
      */
     long heartbeatInterval();
+
+    /**
+     * 使用线程数
+     * @return
+     */
+    int threads();
 }

@@ -3,7 +3,7 @@ package com.xiaolee.netty.im.client.config;
 /**
  * 从对象中读取配置属性
  */
-public class StaticPropertySource implements ClientPropertySource {
+public class StaticPropertySource implements ClientPropertySource{
     private String[] serverUrls;
     private long connectionTimeout;
     private long heartbeatInterval;
@@ -51,6 +51,16 @@ public class StaticPropertySource implements ClientPropertySource {
      */
     public long heartbeatInterval() {
         return heartbeatInterval;
+    }
+
+    /**
+     * 使用线程数
+     *
+     * @return
+     */
+    @Override
+    public int threads() {
+        return 0;
     }
 
 

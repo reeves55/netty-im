@@ -7,6 +7,7 @@ import com.xiaolee.netty.im.common.message.AppMsg;
 import com.xiaolee.netty.im.common.protocol.Message;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
+import io.netty.channel.EventLoopGroup;
 
 public class NettyIMClient implements IMClient{
     private static final int DISCONNECTED = 0;
@@ -21,6 +22,7 @@ public class NettyIMClient implements IMClient{
     // netty 网络连接
     private Channel connection;
     private Bootstrap bootstrap;
+    private EventLoopGroup eventLoopGroup;
 
 
     public NettyIMClient(ClientPropertySource propertySource) {
@@ -28,7 +30,7 @@ public class NettyIMClient implements IMClient{
 
         // init bootstrap
         bootstrap = new Bootstrap();
-
+        bootstrap.group(NettyEventLoopFactory.eventLoopGroup(propertySource.threads()));
     }
 
     /**
