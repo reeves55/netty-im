@@ -6,12 +6,12 @@ public interface CompleteListener {
      *
      * @param promise
      */
-    default void onSuccess(Promise promise) {}
+    default void success(Promise promise) {}
 
     /**
      * error occurred
      *
      * @param promise
      */
-    default void onError(Promise promise) {}
+    default void error(Promise promise) {}
 }

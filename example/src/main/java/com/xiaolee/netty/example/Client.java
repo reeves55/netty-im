@@ -36,9 +36,9 @@ public class Client {
             });
 
             client.sendTo("receiver", new PlainTextAppMsg("hello"))
-                    .addListener(new CompleteListener() {
+                    .onComplete(new CompleteListener() {
                         @Override
-                        public void onError(Promise promise) {
+                        public void error(Promise promise) {
                             System.out.println(promise.cause().getMessage());
                         }
                     });

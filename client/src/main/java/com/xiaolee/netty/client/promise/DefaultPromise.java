@@ -12,7 +12,7 @@ public class DefaultPromise implements Promise{
     }
 
     @Override
-    public Promise addListener(CompleteListener listener) {
+    public Promise onComplete(CompleteListener listener) {
         return null;
     }
 

@@ -22,7 +22,7 @@ public interface Promise {
      * @param listener
      * @return
      */
-    Promise addListener(CompleteListener listener);
+    Promise onComplete(CompleteListener listener);
 
     /**
      * 获取执行异常信息
