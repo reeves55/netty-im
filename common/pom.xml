@@ -5,12 +5,12 @@
 
     <parent>
         <groupId>com.xiaolee</groupId>
-        <artifactId>netty-client-server-demo-dependencies</artifactId>
+        <artifactId>netty-im-dependencies</artifactId>
         <version>1.0.0.SNAPSHOT</version>
     </parent>
 
     <groupId>com.xiaolee</groupId>
-    <artifactId>netty-common</artifactId>
+    <artifactId>netty-im-common</artifactId>
     <version>1.0.0.SNAPSHOT</version>
 
     <dependencies>

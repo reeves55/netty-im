@@ -5,6 +5,7 @@ import com.xiaolee.netty.client.promise.ChannelFutureAdapter;
 import com.xiaolee.netty.client.promise.Promise;
 import com.xiaolee.netty.common.message.AppMsg;
 import com.xiaolee.netty.common.protocol.Message;
+import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
 
 public class NettyIMClient implements IMClient{
@@ -12,26 +13,29 @@ public class NettyIMClient implements IMClient{
     private static final int CONNECTING = 1;
     private static final int CONNECTED = 2;
     // 客户端连接状态
-    private volatile int connectStatus = DISCONNECTED;
+    private volatile int status = DISCONNECTED;
     // 属性配置源，用于获取配置属性值
     private ClientPropertySource propertySource;
     // 消息分发器
-    Dispatcher dispatcher;
+    private Dispatcher dispatcher;
     // netty 网络连接
-    Channel connection;
+    private Channel connection;
+    private Bootstrap bootstrap;
 
-    /**
-     * 构造方法
-     */
+
     public NettyIMClient(ClientPropertySource propertySource) {
         this.propertySource = propertySource;
+
+        // init bootstrap
+        bootstrap = new Bootstrap();
+
     }
 
     /**
      * 连接到IM服务器
      */
     public Promise connect() {
-        if (connectStatus > DISCONNECTED) {
+        if (status > DISCONNECTED) {
             // throw new ConnectException("client is connecting or has already connected to server");
         }
 
@@ -42,6 +46,7 @@ public class NettyIMClient implements IMClient{
 
         for (String url : servers) {
             // TODO: 连接到指定服务器，成功则理解返回，失败则尝试下一个地址，全部失败返回错误
+
         }
 
         return null;

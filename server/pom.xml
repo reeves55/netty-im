@@ -4,17 +4,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.xiaolee</groupId>
-    <artifactId>netty-server</artifactId>
+    <artifactId>netty-im-server</artifactId>
     <version>1.0.0.SNAPSHOT</version>
 
     <parent>
         <groupId>com.xiaolee</groupId>
-        <artifactId>netty-client-server-demo-dependencies</artifactId>
+        <artifactId>netty-im-dependencies</artifactId>
         <version>1.0.0.SNAPSHOT</version>
     </parent>
 
     <properties>
-        <netty-common-version>1.0.0.SNAPSHOT</netty-common-version>
+        <netty-im-common-version>1.0.0.SNAPSHOT</netty-im-common-version>
     </properties>
 
     <dependencies>
@@ -25,13 +25,8 @@
 
         <dependency>
             <groupId>com.xiaolee</groupId>
-            <artifactId>netty-common</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.xiaolee</groupId>
-            <artifactId>netty-common</artifactId>
-            <version>${netty-common-version}</version>
+            <artifactId>netty-im-common</artifactId>
+            <version>${netty-im-common-version}</version>
         </dependency>
     </dependencies>
 </project>
