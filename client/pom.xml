@@ -3,15 +3,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.xiaolee</groupId>
-    <artifactId>netty-im-client</artifactId>
-    <version>1.0.0.SNAPSHOT</version>
-
     <parent>
         <groupId>com.xiaolee</groupId>
-        <artifactId>netty-im-dependencies</artifactId>
+        <artifactId>netty-im</artifactId>
         <version>1.0.0.SNAPSHOT</version>
     </parent>
+
+    <artifactId>netty-im-client</artifactId>
+    <version>1.0.0.SNAPSHOT</version>
 
     <properties>
         <netty-im-common-version>1.0.0.SNAPSHOT</netty-im-common-version>
