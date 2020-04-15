@@ -1,17 +1,19 @@
 package com.xiaolee.netty.im.client.config;
 
-public interface ClientPropertySource {
+import java.net.InetSocketAddress;
+
+public interface PropertySource {
     /**
      * 服务器连接地址列表
      * @return
      */
-    String[] serverUrls();
+    InetSocketAddress[] serverUrls();
 
     /**
      * 连接超时时间(ms)
      * @return
      */
-    long connectTimeout();
+    int connectTimeout();
 
     /**
      * 心跳间隙时间(ms)

@@ -1,11 +1,13 @@
 package com.xiaolee.netty.im.client.config;
 
+import java.net.InetSocketAddress;
+
 /**
  * 从对象中读取配置属性
  */
-public class DefaultPropertySource implements ClientPropertySource{
-    private String[] serverUrls;
-    private long connectionTimeout;
+public class DefaultPropertySource implements PropertySource {
+    private InetSocketAddress[] serverUrls;
+    private int connectionTimeout;
     private long heartbeatInterval;
 
     public DefaultPropertySource() {
@@ -19,7 +21,7 @@ public class DefaultPropertySource implements ClientPropertySource{
 
     }
 
-    public void setConnectionTimeout(long connectionTimeout) {
+    public void setConnectionTimeout(int connectionTimeout) {
         this.connectionTimeout = connectionTimeout;
     }
 
@@ -31,7 +33,7 @@ public class DefaultPropertySource implements ClientPropertySource{
      * 服务器连接地址列表
      * @return
      */
-    public String[] serverUrls() {
+    public InetSocketAddress[] serverUrls() {
         return serverUrls;
     }
 
@@ -40,7 +42,7 @@ public class DefaultPropertySource implements ClientPropertySource{
      *
      * @return
      */
-    public long connectTimeout() {
+    public int connectTimeout() {
         return connectionTimeout;
     }
 

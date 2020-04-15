@@ -2,6 +2,7 @@ package com.xiaolee.netty.im.client.promise;
 
 public class DefaultPromise implements Promise{
     private Exception cause;
+    private volatile boolean isFailed;
 
     public Promise sync() throws InterruptedException {
         return null;
@@ -22,5 +23,10 @@ public class DefaultPromise implements Promise{
     @Override
     public Exception cause() {
         return cause;
+    }
+
+    public void fail(Exception e) {
+        cause = e;
+        isFailed = true;
     }
 }

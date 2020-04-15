@@ -1,5 +1,6 @@
 package com.xiaolee.netty.im.client;
 
+import com.xiaolee.netty.im.client.exception.ConnectException;
 import com.xiaolee.netty.im.common.message.AppMsg;
 import com.xiaolee.netty.im.client.promise.Promise;
 
@@ -9,7 +10,7 @@ public interface IMClient {
      *
      * @return
      */
-    Promise connect();
+    Promise connect() throws ConnectException;
 
     /**
      * 登陆（用户名密码认证）
