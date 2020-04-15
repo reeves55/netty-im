@@ -52,6 +52,83 @@ public class Message {
         @Tag(8)
         private Map<String, Object> extend;
 
+        private Head() {
+        }
+
+        public Head(Builder builder) {
+            Head head = new Head();
+            head.id = builder.id;
+            head.category = builder.category;
+            head.contentType = builder.contentType;
+            head.from = builder.from;
+            head.to = builder.to;
+            head.timestamp = builder.timestamp;
+            head.status = builder.status;
+            head.extend = builder.extend;
+        }
+
+        public static Builder builder() {
+            return new Builder();
+        }
+
+
+        public static class Builder {
+            private String id;
+            private int category;
+            private String contentType;
+            private String from;
+            private String to;
+            private long timestamp;
+            private int status;
+            private Map<String, Object> extend;
+
+            private Builder() {
+            }
+
+            public Head build() {
+                return new Message.Head(this);
+            }
+
+            public Builder id(String id) {
+                this.id = id;
+                return this;
+            }
+
+            public Builder category(int category) {
+                this.category = category;
+                return this;
+            }
+
+            public Builder contentType(String contentType) {
+                this.contentType = contentType;
+                return this;
+            }
+
+            public Builder from(String from) {
+                this.from = from;
+                return this;
+            }
+
+            public Builder to(String to) {
+                this.to = to;
+                return this;
+            }
+
+            public Builder timestamp(long timestamp) {
+                this.timestamp = timestamp;
+                return this;
+            }
+
+            public Builder status(int status) {
+                this.status = status;
+                return this;
+            }
+
+            public Builder extend(Map<String, Object> extend) {
+                this.extend = extend;
+                return this;
+            }
+        }
 
         public String getId() {
             return id;

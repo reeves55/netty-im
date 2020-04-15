@@ -15,6 +15,9 @@ public class MessageIOUtil {
 
     /**
      * serialize message to byte array
+     *
+     * @param message
+     * @return
      */
     public static byte[] serialize(Message message) {
         if (message == null) {
@@ -22,5 +25,22 @@ public class MessageIOUtil {
         }
 
         return ProtobufIOUtil.toByteArray(message, MSG_SCHEMA, LinkedBuffer.allocate(LinkedBuffer.DEFAULT_BUFFER_SIZE));
+    }
+
+    /**
+     * deserialize message from byte array
+     *
+     * @param messageBytes
+     * @return
+     */
+    public static Message deserialize(byte[] messageBytes) {
+        if (messageBytes == null || messageBytes.length < 1) {
+            return null;
+        }
+
+        Message msg = new Message();
+        ProtobufIOUtil.mergeFrom(messageBytes, msg, MSG_SCHEMA);
+
+        return msg;
     }
 }

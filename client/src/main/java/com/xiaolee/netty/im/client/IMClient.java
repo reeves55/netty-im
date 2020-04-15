@@ -13,23 +13,6 @@ public interface IMClient {
     Promise connect() throws ConnectException;
 
     /**
-     * 登陆（用户名密码认证）
-     *
-     * @param username
-     * @param password
-     * @return
-     */
-    Promise login(String username, String password);
-
-    /**
-     * 登陆（token认证）
-     *
-     * @param token
-     * @return
-     */
-    Promise login(String token);
-
-    /**
      * 发送消息
      */
     Promise sendTo(String receiver, AppMsg message);

@@ -6,7 +6,6 @@ import com.xiaolee.netty.im.client.promise.ChannelFutureAdapter;
 import com.xiaolee.netty.im.client.promise.CompleteListener;
 import com.xiaolee.netty.im.client.promise.Promise;
 import com.xiaolee.netty.im.common.message.AppMsg;
-import com.xiaolee.netty.im.common.message.AppMsgHandler;
 import com.xiaolee.netty.im.common.protocol.Message;
 import com.xiaolee.netty.im.common.protocol.MessageDecoder;
 import com.xiaolee.netty.im.common.protocol.MessageEncoder;
@@ -17,12 +16,12 @@ import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
+import io.netty.handler.codec.LengthFieldPrepender;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.net.Socket;
 
 public class NettyIMClient implements IMClient {
     private static final int DISCONNECTED = 0;
@@ -55,9 +54,14 @@ public class NettyIMClient implements IMClient {
                     @Override
                     protected void initChannel(NioSocketChannel ch) throws Exception {
                         ch.pipeline()
+                                // 使用netty自带长度解码器
+                                .addLast("frame-encoder", new LengthFieldPrepender(2))
+                                .addLast("frame-decoder", new LengthFieldBasedFrameDecoder(65535,
+                                        0, 2, 0, 2))
                                 .addLast(new MessageDecoder())
                                 .addLast(new MessageEncoder())
-                                .addLast(new AppMsgHandler());
+                                .addLast(new AppMsgOutboundHandler())
+                                .addLast(new AppMsgInboundHandler());
                     }
                 });
     }
@@ -93,6 +97,7 @@ public class NettyIMClient implements IMClient {
             @Override
             public void error(Promise promise) {
                 // 连接出错
+                System.out.println("连接出错");
             }
         });
     }
@@ -102,45 +107,26 @@ public class NettyIMClient implements IMClient {
     }
 
     private InetSocketAddress selectServer(InetSocketAddress[] servers, InetSocketAddress[] except) {
-        Set<InetSocketAddress> exceptSet = new HashSet<InetSocketAddress>();
         InetSocketAddress selectedServer = null;
-
-        if (except != null && except.length > 0) {
-            exceptSet.addAll(Arrays.asList(except));
-        }
-
+        long connTime = Integer.MAX_VALUE;
         for (InetSocketAddress address : servers) {
-            if (exceptSet.contains(address)) {
-                continue;
-            }
-
             try {
-                if (address.getAddress().isReachable(3000)) {
+                Socket socket = new Socket();
+                long start = System.currentTimeMillis();
+                socket.connect(address, 3000);
+                long end = System.currentTimeMillis();
+
+                if ((end - start) < connTime) {
+                    connTime = end - start;
                     selectedServer = address;
-                    break;
                 }
+
+                socket.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-
         return selectedServer;
-    }
-
-    /**
-     * 登陆（用户名密码认证）
-     *
-     * @return
-     */
-    public Promise login(String username, String password) {
-        return null;
-    }
-
-    /**
-     * 登陆（token认证）
-     */
-    public Promise login(String token) {
-        return null;
     }
 
     /**

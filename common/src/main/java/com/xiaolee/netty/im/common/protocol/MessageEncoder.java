@@ -7,6 +7,10 @@ import io.netty.channel.ChannelPromise;
 public class MessageEncoder extends ChannelOutboundHandlerAdapter {
     @Override
     public void write(ChannelHandlerContext ctx, Object msg, ChannelPromise promise) throws Exception {
-        super.write(ctx, msg, promise);
+        if (msg instanceof Message) {
+            Message message = (Message) msg;
+            byte[] msgBytes = MessageIOUtil.serialize(message);
+            ctx.writeAndFlush(msgBytes);
+        }
     }
 }
