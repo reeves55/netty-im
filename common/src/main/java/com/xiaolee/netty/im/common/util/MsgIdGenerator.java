@@ -1,4 +1,4 @@
-package com.xiaolee.netty.im.client.util;
+package com.xiaolee.netty.im.common.util;
 
 import java.util.UUID;
 

@@ -5,6 +5,8 @@ import com.xiaolee.netty.im.client.exception.ConnectException;
 import com.xiaolee.netty.im.client.promise.ChannelFutureAdapter;
 import com.xiaolee.netty.im.client.promise.CompleteListener;
 import com.xiaolee.netty.im.client.promise.Promise;
+import com.xiaolee.netty.im.common.AppMsgInboundHandler;
+import com.xiaolee.netty.im.common.AppMsgOutboundHandler;
 import com.xiaolee.netty.im.common.message.AppMsg;
 import com.xiaolee.netty.im.common.protocol.Message;
 import com.xiaolee.netty.im.common.protocol.MessageDecoder;
@@ -134,13 +136,7 @@ public class NettyIMClient implements IMClient {
      */
     @Override
     public Promise sendTo(String receiver, AppMsg message) {
-        Message msg = new Message();
-        msg.setBody(message.getBytes());
-
-        Message.Head head = new Message.Head();
-        head.setTo(receiver);
-
-        return new ChannelFutureAdapter(connection.writeAndFlush(msg));
+        return new ChannelFutureAdapter(connection.writeAndFlush(message));
     }
 
     /**

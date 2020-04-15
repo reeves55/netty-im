@@ -1,4 +1,4 @@
-package com.xiaolee.netty.im.client;
+package com.xiaolee.netty.im.common;
 
 import io.netty.channel.ChannelInboundHandlerAdapter;
 

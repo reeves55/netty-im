@@ -1,6 +1,6 @@
-package com.xiaolee.netty.im.client;
+package com.xiaolee.netty.im.common;
 
-import com.xiaolee.netty.im.client.util.MsgIdGenerator;
+import com.xiaolee.netty.im.common.util.MsgIdGenerator;
 import com.xiaolee.netty.im.common.message.AppMsg;
 import com.xiaolee.netty.im.common.protocol.Message;
 import io.netty.channel.ChannelHandlerContext;
