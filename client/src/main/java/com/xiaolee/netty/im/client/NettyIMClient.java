@@ -24,6 +24,8 @@ import io.netty.handler.codec.LengthFieldPrepender;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 
 public class NettyIMClient implements IMClient {
     private static final int DISCONNECTED = 0;
@@ -63,7 +65,8 @@ public class NettyIMClient implements IMClient {
                                 .addLast(new MessageDecoder())
                                 .addLast(new MessageEncoder())
                                 .addLast(new AppMsgOutboundHandler())
-                                .addLast(new AppMsgInboundHandler());
+                                .addLast(new AppMsgInboundHandler())
+                                .addLast(new NettyIMClientHandler(NettyIMClient.this));
                     }
                 });
     }
@@ -140,11 +143,11 @@ public class NettyIMClient implements IMClient {
     }
 
     /**
-     * 添加事件监听器
+     * register listener to dispatcher
      */
     @Override
     public void addOnEventListener(OnEventListener listener) {
-
+        dispatcher.addOnEventListener(listener);
     }
 
     /**
@@ -155,5 +158,7 @@ public class NettyIMClient implements IMClient {
 
     }
 
-
+    public Dispatcher getDispatcher() {
+        return dispatcher;
+    }
 }
