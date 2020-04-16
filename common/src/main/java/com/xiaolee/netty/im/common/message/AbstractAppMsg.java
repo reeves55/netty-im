@@ -12,6 +12,18 @@ public abstract class AbstractAppMsg implements AppMsg{
         extendMap = new ConcurrentHashMap<>();
     }
 
+    public void setFrom(String from) {
+        this.from = from;
+    }
+
+    public void setTo(String to) {
+        this.to = to;
+    }
+
+    public void setExtendMap(Map<String, Object> extendMap) {
+        this.extendMap = extendMap;
+    }
+
     /**
      * subclass to implement
      * @return

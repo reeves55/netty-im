@@ -1,6 +1,12 @@
 package com.xiaolee.netty.im.common.message;
 
 public class BytesAppMsg extends AbstractAppMsg{
+    private byte[] content;
+
+    public BytesAppMsg(byte[] body) {
+        this.content = body;
+    }
+
     /**
      * subclass to implement
      *
@@ -8,7 +14,7 @@ public class BytesAppMsg extends AbstractAppMsg{
      */
     @Override
     public byte[] getBytes() {
-        return new byte[0];
+        return content;
     }
 
     /**
@@ -18,7 +24,7 @@ public class BytesAppMsg extends AbstractAppMsg{
      */
     @Override
     public String contentType() {
-        return null;
+        return MsgTypeConstant.BYTES;
     }
 
     /**
@@ -28,6 +34,6 @@ public class BytesAppMsg extends AbstractAppMsg{
      */
     @Override
     public Object getObject() {
-        return null;
+        return content;
     }
 }
